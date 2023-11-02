@@ -718,7 +718,7 @@ src/components/**/*.json
     
     由主版本號.次版本號.迭代版本號-建構版本號。
     
-    ![Untitled](/Untitled%201.png)
+    ![Untitled](/Untitled_1.png)
     
     產品模組版本分為自研與開源模組：
     
@@ -752,7 +752,7 @@ src/components/**/*.json
 
 在使用 Git 的過程中如果沒有清晰流程和規劃，每個人都提交一堆雜亂無章的 commit，項目很快就會變得難以協調和維護。Vincent Driessen 為了解決這個流程和規範問題提出了 A Successful Git Branching Model，以下是基於 Vincent Driessen 提出的 **Git Flow** 流程圖：
 
-![Untitled](/Untitled%202.png)
+![Untitled](/Untitled_2.png)
 
 Git 常見分支：
 
