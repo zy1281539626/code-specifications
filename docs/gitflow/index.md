@@ -21,13 +21,13 @@
     
     由主版本號.次版本號.迭代版本號組成。
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/2465cea4-b4b4-4093-ac8f-72564728f0b1/Untitled.png)
+    ![Untitled](/Untitled.png)
     
 - 產品模組版本
     
     由主版本號.次版本號.迭代版本號-建構版本號。
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/c765da7b-7782-4089-a703-f6b0db954b0d/Untitled.png)
+    ![Untitled](/Untitled_1.png)
     
     產品模組版本分為自研與開源模組：
     
@@ -61,7 +61,7 @@
 
 在使用 Git 的過程中如果沒有清晰流程和規劃，每個人都提交一堆雜亂無章的 commit，項目很快就會變得難以協調和維護。Vincent Driessen 為了解決這個流程和規範問題提出了 A Successful Git Branching Model，以下是基於 Vincent Driessen 提出的 **Git Flow** 流程圖：
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/eecb7482-56c8-4336-8232-15f60a234fa5/Untitled.png)
+![Untitled](/Untitled_2.png)
 
 Git 常見分支：
 
@@ -249,7 +249,7 @@ BREAKING CHANGE: `trackBy` now takes a second argument when used in `NgFor`.
 - **commitizen:** 提供一個**互動式介面**幫助你建構規範化的提交信息，通常是使用命令`npm run commit`來執行代碼提交；
 - **commitlint:** 一旦你有了提交資訊（無論是直接透過 `git commit` 還是透過 `commitizen` 獲得的），husky 可以觸發 `commit-msg` 鉤子。在 `commit-msg` 鉤子中，`commitlint` 會檢查提交資訊是否符合預設的規範。 如果提交資訊不符合預期，提交將中斷。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/3172fcfe-554b-42a5-a329-1d7d04fa6397/Untitled.jpeg)
+![Untitled](/Untitled.jpeg)
 
 大致**提交**流程為：
 
