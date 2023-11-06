@@ -30,28 +30,16 @@ window.BOCJSBridge.call(Object object);
 
 ## 返回值
 
-object.success  成功返回 **`JSON字符串`** 到success方法參數中
+object.success  成功返回 **`JSON字符串`** 到success方法參數中；
 
 object.fail  失敗返回錯誤信息到fail方法參數中
 
-```jsx
-// success
-{
-	"result_code": 0,
-	"result_msg": "success",
-	"data": {
-		"username": "zhangsan"
-	}
-}
-
-// fail
-{
-	"result_code": 1,
-	"result_msg": "request failed",
-	"data": ""
-}
-
-```
+| 參數 | 類型 | 是否需要encode | 描述 |
+| --- | --- | --- | --- |
+| result_code | number | 否 | 錯誤碼 |
+| result_msg | string | 否 | 返回信息 |
+| data | object | 否 | 返回數據 |
+| data.user.name | string | 否 | 用户名 |
 
 ## 示例代碼
 

@@ -1,5 +1,4 @@
 # H5 項目規範
----
 
 # 1. 技術堆疊與開發環境
 
@@ -89,7 +88,7 @@ Vue.js - The Progressive JavaScript Framework
 |  | 命名方式 | 例子 |
 | --- | --- | --- |
 | 項目名 | kebab-case 全小寫短橫線 | element-plus、vant-weapp、my-project-name |
-| 目錄名 | 參照項目名，有複數時需用複數命名 | docs、assets、components、directives、mixins、utils、views |
+| 目錄名 | 參照項目名，有複數時需用複數命名，縮寫不用複數 | docs、assets、components、directives、mixins、utils、views |
 | 影像檔名 | 全小寫，底線（優先單個單詞） | menu_aboutus.png、logo.png |
 | html檔名 | 全小寫，底線（優先單個單詞） | success_report.html、index.html |
 | css檔名 | kebab-case 全小寫短橫線 | base.scss、date-picker.scss |
@@ -712,13 +711,13 @@ src/components/**/*.json
     
     由主版本號.次版本號.迭代版本號組成。
     
-    ![Untitled](/Untitled.png)
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/2465cea4-b4b4-4093-ac8f-72564728f0b1/Untitled.png)
     
 - 產品模組版本
     
     由主版本號.次版本號.迭代版本號-建構版本號。
     
-    ![Untitled](/Untitled_1.png)
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/c765da7b-7782-4089-a703-f6b0db954b0d/Untitled.png)
     
     產品模組版本分為自研與開源模組：
     
@@ -752,7 +751,7 @@ src/components/**/*.json
 
 在使用 Git 的過程中如果沒有清晰流程和規劃，每個人都提交一堆雜亂無章的 commit，項目很快就會變得難以協調和維護。Vincent Driessen 為了解決這個流程和規範問題提出了 A Successful Git Branching Model，以下是基於 Vincent Driessen 提出的 **Git Flow** 流程圖：
 
-![Untitled](/Untitled_2.png)
+![修改main.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/4f2b39e2-7c89-4d6c-afed-0b2f81f61fa4/%E4%BF%AE%E6%94%B9main.png)
 
 Git 常見分支：
 
@@ -774,9 +773,9 @@ Git 常見分支：
 
 - 主分支：**main**
 - 主開發分支：**dev**
-- 功能開發分支：**feature-***，其中*為功能簡述，如：feature-item-list
+- 功能開發分支：**feature-***，其中*為功能簡述，如：feature-item-list-20231101
 - 發布分支：**release-***，其中*為版本號，如：release-1.0.0
-- 修復分支：**hotfix-***，其中*為bug簡述，如：hotfix-item-update-bug
+- 修復分支：**hotfix-***，其中*為bug簡述，如：hotfix-item-update-1.0.0
 - tag名稱：依據**3.1版本規範定義**，如：v1.0.0
 
 <aside>
@@ -929,7 +928,7 @@ BREAKING CHANGE: `trackBy` now takes a second argument when used in `NgFor`.
 - **commitizen:** 提供一個**互動式介面**幫助你建構規範化的提交信息，通常是使用命令`npm run commit`來執行代碼提交；
 - **commitlint:** 一旦你有了提交資訊（無論是直接透過 `git commit` 還是透過 `commitizen` 獲得的），husky 可以觸發 `commit-msg` 鉤子。在 `commit-msg` 鉤子中，`commitlint` 會檢查提交資訊是否符合預設的規範。 如果提交資訊不符合預期，提交將中斷。
 
-![Untitled](/Untitled.jpeg)
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/3172fcfe-554b-42a5-a329-1d7d04fa6397/Untitled.jpeg)
 
 大致**提交**流程為：
 
@@ -956,7 +955,7 @@ npx husky-init
 初始化完成后会默认生成：
 
 - package.json 生成一個script腳本： `"prepare": "husky install"`
-- ​`.husky`​ 文件夹，包含 `pre-commit`​ 文件
+- `.husky` 文件夹，包含 `pre-commit` 文件
 
 修改 pre-commit 文件，添加lint-staged執行命令：
 
@@ -1000,7 +999,7 @@ npm install commitizen cz-conventional-changelog -D
 }
 ```
 
-使用 `npx cz` 提交，為了方便，可以在scripts中加一個腳本：`"commit": "npx cz”`，這樣就可以用 `npm run commit`來做提交操作。
+使用 `npx cz` 提交，為了方便，可以在scripts中加一個腳本：`"commit": "npx cz"`，這樣就可以用 `npm run commit`來做提交操作。
 
 1. 自定义commit規範
 
@@ -1080,8 +1079,6 @@ module.exports = {
   "path": "cz-customizable"
 }
 ```
-
-​
 
 1. 配置commitlint提交規範校驗
 
@@ -1221,7 +1218,7 @@ API 交互文檔需要保證前後端有一致的目標，文檔主要有以下�
 
  
 
-[APP 交互文檔模板說明](/h5/app/app.md)
+[APP 交互文檔模板說明](https://www.notion.so/APP-0d25544f72a049bea28ecd8cfdbdf90e?pvs=21)
 
 編寫 API 文件是一項重要且精細的工作，良好的文件能顯著提高開發效率和協作品質。
 
