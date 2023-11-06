@@ -1,4 +1,4 @@
-# GitFlow 工作流
+# GitFlow 工作流程規範
 
 當在多人協作的團隊中或涉及多環境部署（如開發、測試、生產環境）的專案時， GitFlow 提供了一個固定的、預測性強的分支管理和發布流程，有助於簡化版本管理和部署流程。
 
@@ -13,7 +13,7 @@
 - 主版本號：定義為重大架構變更或重大功能新增時使用，從1開始遞增；
 - 次版本號：定義為架構調整或重大功能調整時使用，從0開始遞增；
 - 迭代版本號：定義為版本迭代時使用，從0開始遞增；
-- 建構版本號：定義為模組的架構版本，從1開始遞增。
+- 建構版本號：定義為模組的架構版本，從1開始遞增**`（内部開發、測試使用，不公佈）`**。
 
 ## 1.2 版本號變更說明
 
@@ -21,13 +21,13 @@
     
     由主版本號.次版本號.迭代版本號組成。
     
-    ![Untitled](/Untitled.png)
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/2465cea4-b4b4-4093-ac8f-72564728f0b1/Untitled.png)
     
 - 產品模組版本
     
     由主版本號.次版本號.迭代版本號-建構版本號。
     
-    ![Untitled](/Untitled_1.png)
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/c765da7b-7782-4089-a703-f6b0db954b0d/Untitled.png)
     
     產品模組版本分為自研與開源模組：
     
@@ -61,7 +61,7 @@
 
 在使用 Git 的過程中如果沒有清晰流程和規劃，每個人都提交一堆雜亂無章的 commit，項目很快就會變得難以協調和維護。Vincent Driessen 為了解決這個流程和規範問題提出了 A Successful Git Branching Model，以下是基於 Vincent Driessen 提出的 **Git Flow** 流程圖：
 
-![Untitled](/Untitled_2.png)
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/eecb7482-56c8-4336-8232-15f60a234fa5/Untitled.png)
 
 Git 常見分支：
 
@@ -71,10 +71,12 @@ Git 常見分支：
 2. 功能分支 (Feature Branches):
     - 為每個新功能或改進建立一個新的分支。
     - 這些分支通常基於 `dev` 創建，一旦完成，將合併回 `dev`。
+    - **若同一個功能由多人協作開發，可基於 `feature` 再自建分支**。
+    - **儅該功能`正式發佈上綫`后，可由Git管理員刪除開發分支。**
 3. 發布分支 (Release Branches):
-    - 當 `dev` 達到一個穩定點並且準備發布新版本時，基於 `de` 建立一個發布分支。
+    - 當 `dev` 達到一個穩定點並且準備發布新版本時，基於 `dev` 建立一個發布分支。
     - 在這個分支上可能會進行一些最後的修復工作或版本號更新等。
-    - 完成後，該分支將合併到 `main` 和 `de`。
+    - 完成後，該分支將合併到 `main` 和 `dev`。
 4. 修復分支 (Hotfix Branches):
     - 用於緊急修復生產環境中的問題。
     - 基於 `main` 創建，並且修復完成後將合併回 `main` 和 `dev`。
@@ -83,7 +85,7 @@ Git 常見分支：
 
 - 主分支：**main**
 - 主開發分支：**dev**
-- 功能開發分支：**feature-***，其中*為功能簡述，如：feature-item-list
+- 功能開發分支：**feature-***，其中*為功能簡述加**`發佈日期`**，如：feature-item-list-20231101
 - 發布分支：**release-***，其中*為版本號，如：release-1.0.0
 - 修復分支：**hotfix-***，其中*為bug簡述，如：hotfix-item-update-bug
 - tag名稱：依據**3.1版本規範定義**，如：v1.0.0
@@ -93,6 +95,10 @@ Git 常見分支：
 參考**Github**規範，從2020年10月1日開始，所有“master分支”一律改名為“main分支”。背景原因是為了推進和反映更包容性的語言。 這個決策是回應了技術社群中一部分人關於master/slave術語的討論，這些術語在一些技術環境中用來描述主/從關係。 這些字詞有可能喚起與奴隸制相關的不良情緒和回憶。 因此，為了使技術環境更加包容，GitHub 和其他一些組織和專案選擇使用更中性的術語。
 
 </aside>
+
+### 後續計劃
+
+待 `Jira` 創建后，根據需求編號和bug編號定義分支，並與之關聯。
 
 ## 2.2 操作流程
 
@@ -172,7 +178,7 @@ git merge dev
 
 commit message約定：基於 **`Angular 規範`** 改編。
 
-- `<header>`：`<type>(<scope>): <summary>` 必填
+- `<header>`：`<type>(<scope>): <summary>` 必填，**`scope 可選`**
 - `<body>` 可選
 - `<footer>` 可選
 
@@ -215,7 +221,7 @@ commit message約定：基於 **`Angular 規範`** 改編。
 
 **summary**: **提交信息簡述。**
 
-- commit 目的的簡短描述，不超過50個字元。 可以寫中文，注意commit首個是空格
+- commit 目的的簡短描述。 可以寫中文，注意commit首個是空格
 
 例如：
 
@@ -229,6 +235,11 @@ perf(core): improve the ngFor performance
 BREAKING CHANGE: `trackBy` now takes a second argument when used in `NgFor`.
 ```
 
+<aside>
+💡 爲了更直觀和規範`scope`，後續只需將`Jira` 有需求編號或bug編號的填寫進`scope`，其他情況可不填 `scope`.
+
+</aside>
+
 ## 3.3 commit 提交流程
 
 程式碼開發完成後，將程式碼提交到遠程倉庫需要做一定的規範限制提交，防止出現不同的程式碼風格入庫導致合併衝突。 提交流程中用到的輔助工具有：
@@ -238,7 +249,7 @@ BREAKING CHANGE: `trackBy` now takes a second argument when used in `NgFor`.
 - **commitizen:** 提供一個**互動式介面**幫助你建構規範化的提交信息，通常是使用命令`npm run commit`來執行代碼提交；
 - **commitlint:** 一旦你有了提交資訊（無論是直接透過 `git commit` 還是透過 `commitizen` 獲得的），husky 可以觸發 `commit-msg` 鉤子。在 `commit-msg` 鉤子中，`commitlint` 會檢查提交資訊是否符合預設的規範。 如果提交資訊不符合預期，提交將中斷。
 
-![Untitled](/Untitled.jpeg)
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/977447a0-9821-4660-b46b-6e8bd1fb8975/3172fcfe-554b-42a5-a329-1d7d04fa6397/Untitled.jpeg)
 
 大致**提交**流程為：
 
