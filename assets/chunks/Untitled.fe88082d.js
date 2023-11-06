@@ -1,1 +1,1 @@
-const t="/Untitled.png",s="/Untitled_1.png",n="/Untitled_2.png",_="/Untitled.jpeg";export{t as _,s as a,n as b,_ as c};
+const t=""+new URL("../../Untitled.png",import.meta.url).href,e=""+new URL("../../Untitled_1.png",import.meta.url).href,r=""+new URL("../../Untitled_2.png",import.meta.url).href,n=""+new URL("../../Untitled.jpeg",import.meta.url).href;export{t as _,e as a,r as b,n as c};
