@@ -6,7 +6,7 @@ import { sidebar } from "./sidebar";
 export default defineConfig({
   title: "前端框架開發規範",
   outDir: "../dist",
-  base: "./",
+  base: "/code-specifications/",
   themeConfig: {
     nav,
     sidebar,
